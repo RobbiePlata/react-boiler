@@ -1,0 +1,33 @@
+@use "sass:map";
+
+$color-blue: #0061b1;
+$color-bright-teal: #698da2;
+$color-charcoal: #375162;
+$color-deep-space: #486b73;
+$color-gray: #939597;
+
+$color-white: #fff;
+$color-black: #000;
+$color-main: $color-blue;
+$color-primary: $color-blue;
+$color-secondary: #970000;
+$color-hyperlink: $color-bright-teal;
+
+$color-lightgray: #f2f2f3;
+$color-lightgray-2: #f3f3f4;
+$color-lightgray-3: $color-gray;
+$color-darkgray: #707070;
+$color-darkgreen: $color-bright-teal;
+$color-warning: #b9bbb2;
+
+$google-blue: #4285f4;
+$button-active-blue: #1669F2;
+
+:export {
+    colorMain: $color-main;
+    colorBlack: $color-black;
+    colorSecondary: $color-secondary;
+    colorHyperlink: $color-hyperlink;
+    colorWhite: $color-white;
+    colorLightgray3: $color-lightgray-3;
+}
