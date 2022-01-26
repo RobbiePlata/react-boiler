@@ -6,7 +6,7 @@ const Head = ({
   description = 'Welcome'
 }) => (
   <Helmet>
-    <title>Robbie Plata{pageTitle ? ` - ${pageTitle}` : ''}</title>
+    <title>React App {pageTitle ? ` - ${pageTitle}` : ''}</title>
     <meta name="description" content={description} />
   </Helmet>
 );
