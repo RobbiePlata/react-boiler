@@ -1,14 +1,14 @@
 @use "sass:map";
 
-$color-darker: #23272a;
-$color-dark: #2c2f33;
-$color-light: #99aab5;
+$color-darker: #292c35;
+$color-dark: #333943;
+$color-light: #747882;
 $color-react-blue: #61DBFB;
 
 $color-white: #fff;
 $color-black: #000;
-$color-main: $color-react-blue;
-$color-primary: $color-react-blue;
+$color-main: $color-darker;
+$color-primary: $color-dark;
 $color-secondary: $color-light;
 $color-hyperlink: $color-react-blue;
 

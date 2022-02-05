@@ -1,12 +1,11 @@
 @import "/src/assets/scss/shared";
 
 .nav {
+  transition-duration: $transition-duration;
   @include display-flex(column) {
     position: fixed;
-    left: 0;
-    top: 0;
     width: 80px;
-    height: 100px;
+    height: 100%;
     z-index: 10;
     background-color: $color-primary;
     overflow: hidden;
@@ -17,13 +16,43 @@
   }
 
   &--opened {
-    width: 100%;
+    width: 256px;
+    height: 100%;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
+    overflow: hidden;
   }
 
-  &__top {
-    padding: 20px 16px;
+  &__toggle {
+    height: 40px;
+    align-items: center;
+    @include display-flex {
+      justify-content: right;
+      cursor: pointer;
+      transition: unset;
+      margin-right: 25px;
+      &--opened {
+        width: 100%;
+        margin-right: 0px;
+        justify-content: center;
+        transform: rotateY(-180deg) translateY(0px);
+      }
+      svg {
+        width: 25px;
+        height: 25px;
+        * {
+          fill: $color-secondary;
+          stroke: $color-secondary;
+        }
+        &:hover {
+          * {
+            transition: unset;
+            fill: $color-white;
+            stroke: $color-white;
+          }
+        }
+      }
+    }
   }
 
   &__logo {
@@ -32,69 +61,12 @@
       color: $color-white;
       margin: 10px auto 30px;
     }
-
-    * {
-      transition-duration: unset;
-    }
-
     svg {
       width: auto;
       height: 30px;
-
-      * {
+    * {
         fill: $color-primary;
       }
-    }
-  }
-
-  &__user {
-    @include display-flex {
-      font-family: "Roboto-Medium";
-      height: 50px;
-    }
-
-    &__photo {
-      @include display-flex {
-        justify-content: center;
-        margin-right: 24px;
-      }
-
-      a {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        overflow: hidden;
-      }
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-      }
-    }
-
-    &__texts {
-      @include display-flex(column);
-    }
-
-    &__name {
-      font-size: 18px;
-      line-height: 24px;
-      margin-bottom: 8px;
-      color: $color-primary;
-      text-align: center;
-    }
-
-    &__membership {
-      @include display-flex;
-      width: 100%;
-      font-size: 14px;
-      line-height: 18px;
-      color: $color-hyperlink;
-      justify-content: center;
-      text-decoration: underline;
-      text-transform: capitalize;
     }
   }
 
@@ -102,26 +74,41 @@
     @include display-flex(column);
   }
 
+  &__bottom {
+    @include display-flex(column) {
+      position: relative;
+      margin-top: auto;
+      padding: 700px 0 0 0;
+    }
+    align-items: flex-end;
+  }
+
   &__item {
+    transition: unset;
     @include display-flex {
       position: relative;
       height: 48px;
-      padding: 8px 24px;
+      justify-content: flex-start;
       align-items: center;
-      font-family: "Roboto-Regular";
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 700;
       line-height: 24px;
-      color: $color-primary;
+      color: $color-secondary;
       cursor: pointer;
       margin-top: 8px;
       margin-bottom: 8px;
     }
-
+    
     &:hover,
     &--active {
-      background-color: rgba($color: $color-main, $alpha: 0.2);
+      background-color: $color-main;
+      color: $color-white;
+      svg * {
+        fill: $color-white;
+        stroke: $color-white;
+      }
     }
-
+    
     &--active::before {
       position: absolute;
       content: "";
@@ -129,32 +116,21 @@
       left: 0;
       width: 10px;
       height: 48px;
-      background-color: $color-main;
+      background-color: $color-secondary;
     }
-
+    
     &__icon {
+      width: 30px;
       @include display-flex {
-        margin-right: 16px;
         align-items: center;
-      }
-
-      svg {
-        width: 22px;
-        height: auto;
+        margin: 0px 25px 0px 25px;
       }
 
       &--home {
         svg * {
-          stroke: $color-primary;
-        }
-      }
-
-      &--anchored-meetings,
-      &--my-action-items,
-      &--help,
-      &--settings {
-        svg * {
-          fill: $color-primary;
+          stroke-width: .1px;
+          fill: $color-light;
+          stroke: $color-light;
         }
       }
     }

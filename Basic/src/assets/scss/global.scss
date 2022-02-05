@@ -5,12 +5,12 @@ html,
 body {
   margin: 0px;
   font-family: "Roboto-Regular", sans-serif;
-  transition-duration: unset;
+  transition-duration: $transition-duration;
 }
 body {
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: $color-darker;
+  background-color: $color-main;
 }
 * {
   box-sizing: border-box;
