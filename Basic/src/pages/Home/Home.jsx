@@ -2,7 +2,9 @@ import { useStateValue } from "state";
 
 const Home = () => {
     const { state: { deviceSize } } = useStateValue();
-    return {deviceSize}
+    return <div>
+        {deviceSize}
+    </div>
 };
 
 export default Home;

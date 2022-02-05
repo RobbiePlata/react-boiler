@@ -1,0 +1,1 @@
+export { ReactComponent as NameIcon } from 'assets/images/name.svg';

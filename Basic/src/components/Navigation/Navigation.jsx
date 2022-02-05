@@ -25,6 +25,11 @@ const Navigation = () => {
 
     return (
         <div ref={navRef} className={clsx(styles.nav, isNavOpened && styles['nav--opened'])}>
+            <div className={styles.nav__top}>
+                <div className={styles.nav__logo}>
+                    
+                </div>
+            </div>
         </div>
     )
 };

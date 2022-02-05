@@ -1,0 +1,162 @@
+@import "/src/assets/scss/shared";
+
+.nav {
+  @include display-flex(column) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80px;
+    height: 100px;
+    z-index: 10;
+    background-color: $color-primary;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow-y: auto;
+  }
+
+  &--opened {
+    width: 100%;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  &__top {
+    padding: 20px 16px;
+  }
+
+  &__logo {
+    @include display-flex {
+      justify-content: center;
+      color: $color-white;
+      margin: 10px auto 30px;
+    }
+
+    * {
+      transition-duration: unset;
+    }
+
+    svg {
+      width: auto;
+      height: 30px;
+
+      * {
+        fill: $color-primary;
+      }
+    }
+  }
+
+  &__user {
+    @include display-flex {
+      font-family: "Roboto-Medium";
+      height: 50px;
+    }
+
+    &__photo {
+      @include display-flex {
+        justify-content: center;
+        margin-right: 24px;
+      }
+
+      a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    &__texts {
+      @include display-flex(column);
+    }
+
+    &__name {
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 8px;
+      color: $color-primary;
+      text-align: center;
+    }
+
+    &__membership {
+      @include display-flex;
+      width: 100%;
+      font-size: 14px;
+      line-height: 18px;
+      color: $color-hyperlink;
+      justify-content: center;
+      text-decoration: underline;
+      text-transform: capitalize;
+    }
+  }
+
+  &__main {
+    @include display-flex(column);
+  }
+
+  &__item {
+    @include display-flex {
+      position: relative;
+      height: 48px;
+      padding: 8px 24px;
+      align-items: center;
+      font-family: "Roboto-Regular";
+      font-size: 14px;
+      line-height: 24px;
+      color: $color-primary;
+      cursor: pointer;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    &:hover,
+    &--active {
+      background-color: rgba($color: $color-main, $alpha: 0.2);
+    }
+
+    &--active::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 48px;
+      background-color: $color-main;
+    }
+
+    &__icon {
+      @include display-flex {
+        margin-right: 16px;
+        align-items: center;
+      }
+
+      svg {
+        width: 22px;
+        height: auto;
+      }
+
+      &--home {
+        svg * {
+          stroke: $color-primary;
+        }
+      }
+
+      &--anchored-meetings,
+      &--my-action-items,
+      &--help,
+      &--settings {
+        svg * {
+          fill: $color-primary;
+        }
+      }
+    }
+  }
+}
