@@ -84,7 +84,7 @@
   }
 
   &__item {
-    transition: unset;
+    transition-duration: unset;
     @include display-flex {
       position: relative;
       height: 48px;
@@ -99,8 +99,15 @@
       margin-bottom: 8px;
     }
     
-    &:hover,
-    &--active {
+    svg {
+      width: 30px;
+      height: auto;
+      * {
+          fill: $color-secondary;
+      }
+    }
+
+    &:hover {
       background-color: $color-main;
       color: $color-white;
       svg * {
@@ -108,15 +115,14 @@
         stroke: $color-white;
       }
     }
-    
-    &--active::before {
-      position: absolute;
-      content: "";
-      top: 0;
-      left: 0;
-      width: 10px;
-      height: 48px;
-      background-color: $color-secondary;
+
+    &--active {
+      background-color: $color-main;
+      color: $color-white;
+      svg * {
+          fill: $color-white;
+          stroke: $color-white;
+      }
     }
     
     &__icon {
@@ -124,15 +130,11 @@
       @include display-flex {
         align-items: center;
         margin: 0px 25px 0px 25px;
-      }
-
-      &--home {
         svg * {
-          stroke-width: .1px;
-          fill: $color-light;
-          stroke: $color-light;
+            stroke-width: .1px;
         }
       }
+      
     }
   }
 }

@@ -1,6 +1,7 @@
 import { useScrollLock, useClickOutside } from "hooks";
 import { Link, useLocation } from "react-router-dom";
 import { PATHNAME } from "utils/constants";
+import { HamburgerIcon, HomeIcon } from "components/icons";
 import { useEffect, useState, useRef } from "react";
 import clsx from "clsx";
 import styles from './MobileNavigation.module.scss';
@@ -21,26 +22,30 @@ const MobileNavigation = () => {
 
     return (
         <div className={styles.nav__wrapper}>
+          <div className={styles.nav__top}>
+            <button type='button' className={styles.button__menu} onClick={() => setMenuOpened(true)}>
+              <HamburgerIcon />
+            </button>
+          </div>
             <div ref={menuRef} className={clsx(styles.menu, isMenuOpened && styles[`menu--opened`])}>
             <div className={styles.menu__top}>
               <button type='button' className={styles.button__close} onClick={() => setMenuOpened(false)}>
-                {/* <CloseCircleIcon /> */}
+                <HamburgerIcon />
               </button>
             </div>
 
             <div className={styles.menu__main}>
               {[
-                // { key: 'home', text: 'Home', _pathname: PATHNAME.HOME, icon: <HomeWhiteIcon /> },
+                { key: 'home', text: 'Home', _pathname: PATHNAME.HOME, icon: <HomeIcon /> },
               ].map(({ text, _pathname, icon, key }, mIndex) => (
                 <Link
                   key={mIndex}
                   className={clsx(
                     styles.menu__item,
                     (pathname === _pathname) && styles['menu__item--active']
-                  )}
-                  onClick={() => window?.Appcues?.track("Clicked " + text)}
-                  to={{ pathname: _pathname }}
-                >
+                    )}
+                    to={{ pathname: _pathname }}
+                    >
                   <div className={clsx(
                     styles.menu__item__icon,
                     styles[`menu__item__icon--${key}`]

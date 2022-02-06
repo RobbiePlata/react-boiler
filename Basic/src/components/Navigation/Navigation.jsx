@@ -5,7 +5,7 @@ import { useRef, useEffect } from "react";
 import MobileNavigation from "./MobileNavigation";
 import styles from './Navigation.module.scss';
 import clsx from 'clsx';
-import { CollapseIcon, HomeIcon } from "components/icons";
+import { HomeIcon } from "components/icons";
 import { PATHNAME } from "utils/constants";
 import { Tooltip } from 'components';
 
@@ -15,7 +15,7 @@ const Navigation = () => {
         state: { deviceSize, isNavOpened },
         action: { setNavOpened }
     } = useStateValue();
-    const pathname = useLocation();
+    const { pathname } = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
